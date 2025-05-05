@@ -20,6 +20,9 @@ const Button: React.FC<ButtonProps> = ({
     <Component
       className={`${baseStyles} ${variantStyles[variant]} ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
       aria-busy={isLoading}
+      tabIndex={0}
+      aria-label={children}
+      role="button"
       {...props}
     >
       {isLoading ? <Spinner /> : children}

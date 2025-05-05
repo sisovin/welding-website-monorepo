@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ProjectCard = ({ project, onClick }) => {
   return (
-    <div className="project-card" onClick={onClick}>
+    <div className="project-card" onClick={onClick} aria-label={`Project card for ${project.title}`} tabIndex={0} role="button">
       <Image 
         src={project.images[0]} 
         alt={project.title} 
