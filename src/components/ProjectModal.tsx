@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const ProjectModal = ({ project, onClose }) => {
   return (
@@ -10,7 +11,13 @@ const ProjectModal = ({ project, onClose }) => {
         <div className="modal-details">{project.details}</div>
         <div className="modal-images">
           {project.images.map((image, index) => (
-            <img key={index} src={image} alt={`Project image ${index + 1}`} />
+            <Image 
+              key={index} 
+              src={image} 
+              alt={`Project image ${index + 1}`} 
+              priority 
+              layout="responsive" 
+            />
           ))}
         </div>
         <div className="modal-categories">

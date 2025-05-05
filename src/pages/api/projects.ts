@@ -6,9 +6,14 @@ const prisma = new PrismaClient();
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const projects = await prisma.project.findMany({
-      include: {
+      select: {
+        id: true,
+        title: true,
+        description: true,
         images: true,
         categories: true,
+        createdAt: true,
+        updatedAt: true,
       },
     });
     res.status(200).json(projects);
