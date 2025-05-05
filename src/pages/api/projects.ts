@@ -5,7 +5,12 @@ const prisma = new PrismaClient();
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const projects = await prisma.project.findMany();
+    const projects = await prisma.project.findMany({
+      include: {
+        images: true,
+        categories: true,
+      },
+    });
     res.status(200).json(projects);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch projects' });

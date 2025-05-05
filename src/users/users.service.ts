@@ -15,7 +15,12 @@ export class UsersService {
   }
 
   async create(user: Partial<User>): Promise<User> {
-    const newUser = this.usersRepository.create(user);
+    const newUser = this.usersRepository.create({
+      ...user,
+      hashedPassword: user.hashedPassword,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
     return this.usersRepository.save(newUser);
   }
 }

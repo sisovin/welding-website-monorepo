@@ -18,14 +18,16 @@ export class AuthService {
     const hashedPassword = await argon2.hash(registerDto.password);
     const user = await this.usersService.create({
       ...registerDto,
-      password: hashedPassword,
+      hashedPassword,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     });
     return this.generateToken(user);
   }
 
   async login(loginDto: LoginDto) {
     const user = await this.usersService.findByEmail(loginDto.email);
-    if (user && await argon2.verify(user.password, loginDto.password)) {
+    if (user && await argon2.verify(user.hashedPassword, loginDto.password)) {
       return this.generateToken(user);
     }
     throw new Error('Invalid credentials');
