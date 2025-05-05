@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PrismaService } from '@nestjs/prisma';
@@ -22,18 +22,22 @@ export class ContactFormService {
       contactMessage.isSpam = true;
     }
 
-    // Store message in PostgreSQL
-    await this.prismaService.contactMessage.create({
-      data: contactMessage,
-    });
+    try {
+      // Store message in PostgreSQL
+      await this.prismaService.contactMessage.create({
+        data: contactMessage,
+      });
 
-    // Send email notification
-    await this.sendEmailNotification(contactMessage);
+      // Send email notification
+      await this.sendEmailNotification(contactMessage);
 
-    // Log submission for admin review
-    console.log('New contact form submission:', contactMessage);
+      // Log submission for admin review
+      console.log('New contact form submission:', contactMessage);
 
-    return contactMessage;
+      return contactMessage;
+    } catch (error) {
+      throw new HttpException('An error occurred while processing your request', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   private toContactMessage(contactFormDto: ContactFormDto): ContactMessageDto {
