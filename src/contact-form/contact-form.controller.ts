@@ -12,6 +12,10 @@ export class ContactFormController {
   @Post()
   @UsePipes(new ValidationPipe({ transform: true }))
   async postContactForm(@Body() contactFormDto: ContactFormDto): Promise<ResponseDto> {
-    return this.contactFormService.handleFormSubmission(contactFormDto);
+    try {
+      return await this.contactFormService.handleFormSubmission(contactFormDto);
+    } catch (error) {
+      throw new HttpException('An error occurred while processing your request', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

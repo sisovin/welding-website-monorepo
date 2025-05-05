@@ -13,6 +13,9 @@ export class ContactFormDto {
   @Length(1, 500)
   message: string;
 
+  @IsString()
+  recaptcha: string;
+
   toContactMessage(): ContactMessageDto {
     const contactMessage = new ContactMessageDto();
     contactMessage.name = this.name;
