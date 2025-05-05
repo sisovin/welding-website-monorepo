@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import Head from 'next/head';
+import Image from 'next/image';
 import ProjectCard from '../components/ProjectCard';
 import ProjectModal from '../components/ProjectModal';
 import CategoryTabs from '../components/CategoryTabs';
