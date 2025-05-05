@@ -22,4 +22,8 @@ export class User {
   @Column()
   @IsNotEmpty()
   lastName: string;
+
+  @Column({ default: 'USER' })
+  @IsNotEmpty()
+  role: string;
 }
