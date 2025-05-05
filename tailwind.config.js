@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // Enable dark mode using the `class` strategy
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,14 @@ module.exports = {
           DEFAULT: 'transparent',
           dark: '#E5E7EB',
           light: '#F3F4F6',
+        },
+        dark: {
+          background: '#1A202C',
+          text: '#CBD5E0',
+        },
+        light: {
+          background: '#FFFFFF',
+          text: '#1A202C',
         },
       },
     },
