@@ -27,6 +27,11 @@ module.exports = {
           background: '#FFFFFF',
           text: '#1A202C',
         },
+        contrast: {
+          high: '#000000',
+          medium: '#666666',
+          low: '#CCCCCC',
+        },
       },
     },
   },

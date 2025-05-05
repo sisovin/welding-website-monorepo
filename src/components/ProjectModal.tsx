@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ProjectModal = ({ project, onClose }) => {
   return (
-    <div className="modal">
+    <div className="modal" aria-label={`Project modal for ${project.title}`} tabIndex={0} role="dialog">
       <div className="modal-content">
         <span className="close-button" onClick={onClose}>&times;</span>
         <h2 className="modal-title">{project.title}</h2>

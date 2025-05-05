@@ -40,7 +40,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8" role="form">
       <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
       <Formik
         initialValues={initialValues}
@@ -58,6 +58,8 @@ const ContactForm = () => {
                 id="name"
                 name="name"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-label="Name"
+                tabIndex={0}
               />
               <ErrorMessage name="name" component="div" className="text-red-500 text-sm mt-1" />
             </div>
@@ -71,6 +73,8 @@ const ContactForm = () => {
                 id="email"
                 name="email"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-label="Email"
+                tabIndex={0}
               />
               <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
             </div>
@@ -85,6 +89,8 @@ const ContactForm = () => {
                 name="message"
                 rows="4"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                aria-label="Message"
+                tabIndex={0}
               />
               <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
             </div>

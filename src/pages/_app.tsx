@@ -10,7 +10,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider session={pageProps.session}>
-      <Component {...pageProps} />
+      <main aria-live="polite" role="main">
+        <Component {...pageProps} />
+      </main>
       <Script
         src="https://cdn.example.com/script.js"
         strategy="beforeInteractive"
