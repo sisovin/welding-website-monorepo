@@ -13,17 +13,15 @@ export class User {
   @Column()
   @IsNotEmpty()
   @Length(8, 128)
-  password: string;
-
-  @Column()
-  @IsNotEmpty()
-  firstName: string;
-
-  @Column()
-  @IsNotEmpty()
-  lastName: string;
+  hashedPassword: string;
 
   @Column({ default: 'USER' })
   @IsNotEmpty()
   role: string;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP' })
+  updatedAt: Date;
 }
