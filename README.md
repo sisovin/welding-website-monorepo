@@ -38,11 +38,11 @@ The **Welding Website Monorepo** is a unified repository for managing both the f
 
 ```mermaid
 graph TD;
-    A[Monorepo] --> B[Frontend (Next.js)]
-    A[Monorepo] --> C[Backend (NestJS)]
-    C[Backend (NestJS)] --> D[Database (PostgreSQL)]
-    C[Backend (NestJS)] --> E[Authentication (JWT)]
-    B[Frontend (Next.js)] --> F[API Gateway]
+    A[Monorepo] --> B[Frontend (Next.js)];
+    A[Monorepo] --> C[Backend (NestJS)];
+    C[Backend (NestJS)] --> D[Database (PostgreSQL)];
+    C[Backend (NestJS)] --> E[Authentication (JWT)];
+    B[Frontend (Next.js)] --> F[API Gateway];
 ```
 
 ### Frontend (Next.js)
